@@ -1,82 +1,24 @@
-body {
-  font-family: 'Open Sans', sans-serif;
-  margin: auto;
+abcdef {                                 
+     color: cs275
 }
 
-.carousel {
-  display: flex;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
 
-h1 {
-  font-size: 32px;
-  line-height: 38px;
-  font-weight: 600;
-  text-align: center;
-  margin-top: 30px;
-  margin-bottom: 40px;
-}
 
-.carousel-slides {
-  display: flex;
-  justify-content: center;
-  position: relative;
-  line-height: 1.4;
-  transition: 1s;
-}
 
-#slide {
-  width: 640px;
-  padding-left: 20px;
-  padding-right: 20px;
-  align-items: center;
-  position: relative;
-}
 
-.carousel-navigation {
-  top: 300px;
-  position: absolute;
-  z-index: 1;
-}
 
-#prev {
-  position: absolute;
-  right: 270px;
-}
 
-#next {
-  position: absolute;
-  left: 270px;
-}
 
-#album {
-  font-weight: 600;
-  text-transform: uppercase;
-  text-align: center;
-  letter-spacing: 2px;;
-}
 
-#artist {
-  text-align: center;
-  text-decoration: none;
-  display: block;
-  margin-bottom: 30px;
-}
 
-#credit {
-  font-size: 12px;
-  text-align: center;
-  text-decoration: none;
-  display: block;
-  margin-bottom: 12px;
-}
 
-#review {
-  margin-bottom: 12px;
-}
 
-#source {
-  text-decoration: none;
-}
+
+
+
+
+
+
+
+
+
