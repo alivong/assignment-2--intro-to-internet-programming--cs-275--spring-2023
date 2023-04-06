@@ -26,16 +26,14 @@ let lintJS = () => {
 
 let transpileJS = () => {
     return src(`js/*.js`)
-        .pipe(babel({
-            presets: [`@babel/preset-env`]
-        }))
+        .pipe(babel())
         .pipe(dest(`temp/scripts`));
 };
 
 let compressHTML = () => {
     return src(`index.html`)
         .pipe(htmlCompressor({collapseWhitespace: true}))
-        .pipe(`prod`);
+        .pipe(dest(`prod`));
 };
 
 let compressCSS = () => {
@@ -71,7 +69,7 @@ let copyUnprocessedAssestsforDev = () => {
         `img/*.*`,
         `json/*.json`
     ], {dot: true})
-        .pipe(dest(`dev`));
+        .pipe(dest(`temp`));
 };
 
 let copyUnprocessedAssestsforProd = () => {

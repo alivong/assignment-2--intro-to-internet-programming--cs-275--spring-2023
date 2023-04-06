@@ -29,6 +29,7 @@ function slides(info) {
 
         let image = document.createElement(`img`);
         image.src = info.data[i].cover_image.path;
+        image.alt = info.data[i].cover_image.alt_content;
         slide.appendChild(image);
 
         let creditText = document.createElement(`p`);
@@ -36,10 +37,10 @@ function slides(info) {
         credit.setAttribute(`id`, `credit`);
         creditText.setAttribute(`id`, `creditText`);
         creditText.textContent = `Credit: `;
-        credit.appendChild(creditText);
+        creditText.appendChild(credit);
         credit.textContent += info.data[i].cover_image.credit;
         credit.href = info.data[i].cover_image.url;
-        slide.appendChild(credit);
+        slide.appendChild(creditText);
 
         let review = document.createElement(`p`);
         review.setAttribute(`id`, `review`);
@@ -51,51 +52,63 @@ function slides(info) {
         source.setAttribute(`id`, `source`);
         sourceText.setAttribute(`id`, `emDash`);
         sourceText.textContent = `—`;
-        source.appendChild(sourceText);
+        sourceText.appendChild(source);
         source.textContent += info.data[i].review.source;
         source.href = info.data[i].review.url;
-        slide.appendChild(source);
+        slide.appendChild(sourceText);
     }
 
     let slideIndex = 0;
     let translateX = 0;
 
     leftArrow.addEventListener(`click`, () => {
-        slideIndex--;
-        translateX += 640;
-        carouselSlides.style.transform = `translateX(${translateX}px)`;
-
+        console.log(slideIndex);
         if (slideIndex === 0) {
             leftArrow.style.visibility = `hidden`;
         }
-        else {
+        else if (slideIndex != 0) {
             leftArrow.style.visibility = `visible`;
+            slideIndex--;
+            translateX += 680;
+            carouselSlides.style.transform = `translateX(${translateX}px)`;
+        }
+
+        if(rightArrow.style.visibility == `hidden`) {
+            rightArrow.style.visibility = `visible`;
         }
     });
 
     rightArrow.addEventListener(`click`, () => {
-        slideIndex++;
-        translateX -= 640;
-        carouselSlides.style.transform = `translateX(${translateX}px)`;
-
-        if(slideIndex === 3) {
+        console.log(slideIndex);
+        if (slideIndex < info.data.length - 1) {
+            translateX -= 680;
+            carouselSlides.style.transform = `translateX(${translateX}px)`;
+            slideIndex++;
+            rightArrow.style.visibility = `visible`;
+        }
+        else if (slideIndex === info.data.length - 1) {
             rightArrow.style.visibility = `hidden`;
         }
-        else {
-            rightArrow.style.visibility = `hidden`;
+
+        if(leftArrow.style.visibility == `hidden`) {
+            leftArrow.style.visibility = `visible`;
         }
     });
 
-    carouselSlides.style.transform = `translateX(${translateX}px)`;
-
     document.addEventListener(`keydown`, (event) => {
         if (event.key === `ArrowLeft`) {
-            translateX += 640;
-            carouselSlides.style.transform = `translateX(${translateX}px)`;
+            if (slideIndex != 0) {
+                translateX += 680;
+                carouselSlides.style.transform = `translateX(${translateX}px)`;
+                slideIndex--;
+            }
         }
         else if (event.key === `ArrowRight`) {
-            translateX -= 640;
-            carouselSlides.style.transform = `translateX(${translateX}px)`;
+            if (slideIndex != info.data.length - 1) {
+                translateX -= 680;
+                carouselSlides.style.transform = `translateX(${translateX}px)`;
+                slideIndex++;
+            }
         }
     });
 }

@@ -1,12 +1,12 @@
 body {
   font-family: 'Open Sans', sans-serif;
-  margin: auto;
 }
 
 .carousel {
-  display: flex;
+  width: 680px;
   justify-content: center;
   position: relative;
+  margin: auto;
   overflow: hidden;
 }
 
@@ -21,10 +21,9 @@ h1 {
 
 .carousel-slides {
   display: flex;
-  justify-content: center;
   position: relative;
   line-height: 1.4;
-  transition: 1s;
+  transition: .5s;
 }
 
 #slide {
@@ -36,19 +35,19 @@ h1 {
 }
 
 .carousel-navigation {
-  top: 300px;
+  top: 270px;
   position: absolute;
   z-index: 1;
 }
 
 #prev {
   position: absolute;
-  right: 270px;
+  left: 30px;
 }
 
 #next {
   position: absolute;
-  left: 270px;
+  left: 620px;
 }
 
 #album {
@@ -65,12 +64,12 @@ h1 {
   margin-bottom: 30px;
 }
 
-#credit {
+#creditText {
   font-size: 12px;
   text-align: center;
-  text-decoration: none;
   display: block;
   margin-bottom: 12px;
+  text-decoration: none;
 }
 
 #review {
